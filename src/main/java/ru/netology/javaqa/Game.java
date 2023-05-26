@@ -1,30 +1,25 @@
 package ru.netology.javaqa;
 
+import java.util.ArrayList;
+
 public class Game {
-    private Player[] players = new Player[0];
+    private ArrayList<Player> players = new ArrayList<>();
 
     public void register(Player player) {
-        Player[] tmp = new Player[players.length + 1];
-        for (int i = 0; i < players.length; i++) {
-            tmp[i] = players[i];
-        }
-        tmp[tmp.length - 1] = player;
-        players = tmp;
+        players.add(player);
     }
 
-    public Player[] findAll() {
+    public ArrayList<Player> findAll() {
         return players;
     }
-
     public int searchStrengthByName(String name) {
-        for (Player player : players) {
-            if (player.getName().equals(name)) {
+        for (Player player: players) {
+            if(player.getName().equals(name)) {
                 return player.getStrength();
             }
         }
         return 0;
     }
-
     public int round(String playerName1, String playerName2) {
         int strength1 = searchStrengthByName(playerName1);
         int strength2 = searchStrengthByName(playerName2);
@@ -41,7 +36,7 @@ public class Game {
         }
         if (strength1 < strength2) {
             return 2;
-        }else {
+        } else {
             return 0;
         }
     }

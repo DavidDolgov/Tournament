@@ -36,7 +36,7 @@ public class TestGame {
     public void shouldRegisterEveryone() {
 
         Player[] expected = {player1, player2, player3, player4, player5, player6, player7, player8, player9, player10};
-        Player[] actual = player.findAll();
+        Player[] actual = player.findAll().toArray(new Player[0]);
 
         Assertions.assertArrayEquals(expected, actual);
     }
